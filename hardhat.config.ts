@@ -10,6 +10,7 @@ process.env.BASE_PATH = __dirname;
 
 // tasks
 import "./tasks/newcircuit.ts"
+import { network } from "hardhat";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -21,6 +22,13 @@ const config: HardhatUserConfig = {
         version: "0.6.11",
       }
     ]
+  },
+  networks: {
+    sepolia: {
+      url: "https://sepolia.infura.io/v3/25763837ea2f4c1b9f950c093bc53f1e",
+      chainId: 11155111,
+      accounts: ["8d1536958cc1472192ff0db150ee304010ef25105ce7655e37008873e76c791c"]
+    }
   },
   circom: {
     // (optional) Base path for input files, defaults to `./circuits/`
